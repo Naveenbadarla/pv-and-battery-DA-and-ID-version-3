@@ -14,29 +14,7 @@ st.set_page_config(
     page_title="PV + Battery + DA + ID Optimisation – FLEX",
     layout="wide"
 )
-# =========================
-# PASSWORD PROTECTION
-# =========================
-def require_password():
-    PASSWORD = st.secrets["APP_PASSWORD"]
 
-    if "authenticated" not in st.session_state:
-        st.session_state.authenticated = False
-
-    if not st.session_state.authenticated:
-        st.title("🔒 Login required")
-        pwd = st.text_input("Enter password", type="password")
-
-        if st.button("Login"):
-            if pwd == PASSWORD:
-                st.session_state.authenticated = True
-                st.rerun()
-            else:
-                st.error("Incorrect password")
-
-        st.stop()
-
-require_password()
 
 # -----------------------------------------------------------
 # FLEX THEME HELPERS
